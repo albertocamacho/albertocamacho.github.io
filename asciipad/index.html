@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Thanks to https://www.reddit.com/user/jbl3677, https://www.reddit.com/user/JeffHardly
+	and https://www.reddit.com/user/jhuajhua
+	for their dope samples and also to Kyle Stetz's typedrummer which is a much more technologically sound 
+	website and the inspiration for this app, check it out at http://www.typedrummer.com/
+-->
+
+<html>
+
+<head>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	<link href="styles/main.css" rel="stylesheet">
+	<meta name="theme-color" content="#1B1E25">
+	<meta property="og:title" content="asciipad">
+    <meta property="og:description" content="Make dope beats & gif visualizations with your keyboard.">
+    <meta property="og:url" content="http://acamacho.co/asciipad">
+    <meta property="og:type" content="website">
+</head>
+
+
+<body>
+
+
+
+<div class="overlay hidden overlay--share" id="overlay--share"> 
+	<div class="share-link" id="share-link"> This is your link </div>
+
+	<div class="button button--dismiss-overlay" id="button--dismiss-share-overlay"> 
+		Back to the beats 
+	</div>
+</div>
+
+
+
+<div class="section--share"> 
+	<div class="button button--share" id="button--share"> Get a link </div>
+ </div>
+
+
+
+<div class="section--info">
+	<div class="padded"> 
+		<p class=""> "Because I wanted to see typedrummer with gifs" - <a href="https://twitter.com/abiertoeveryday"> @abiertoeveryday </a> </p>
+	</div>
+   <div class="padded">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Make beats with your keyboard" data-url="http://test.com" data-related="abiertoeverday" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+   </div>
+</div>
+
+
+<div class="mobile-app hidden" id="mobile-app">
+	<input id="mobile-input" class="mobile-input" placeholder="TYPE">
+</div>
+
+
+<div class="app" id="app">
+	<div class="input" id="text"> </div>
+</div> 
+
+<div class="bg-gif" id="bg-gif">
+	<div class="dot-overlay">
+	</div>
+</div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.min.js"></script>
+<script type="text/javascript" src="js/mobilecheck.js"></script>
+<script type="text/javascript" src="js/giphy.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
+
+
+
+</body>
+</html>
