@@ -14,7 +14,7 @@
 	<meta name="theme-color" content="#1B1E25">
 	<meta property="og:title" content="asciipad">
     <meta property="og:description" content="Make dope beats & gif visualizations with your keyboard.">
-    <meta property="og:url" content="http://acamacho.co/asciipad">
+    <meta property="og:url" content="https://acamacho.co/asciipad">
     <meta property="og:type" content="website">
 </head>
 
@@ -41,25 +41,28 @@
 
 <div class="section--info">
 	<div class="padded"> 
-		<p class=""> "Because I wanted to see typedrummer with gifs" - <a href="https://twitter.com/abiertoeveryday"> @abiertoeveryday </a> </p>
+		<p class=""> Yell at me - <a href="https://twitter.com/abiertoeveryday"> @abiertoeveryday </a> </p>
 	</div>
    <div class="padded">
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Make beats with your keyboard" data-url="http://test.com" data-related="abiertoeverday" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+		<a id="twitter-share" href="https://twitter.com/intent/tweet?text=make+beats+with+your+keyboard+http://acamacho.co/asciipad"> 
+			<div class="button button--tweet">  Tweet this </div>
+		 </a>
    </div>
 </div>
 
 
-<div class="mobile-app hidden" id="mobile-app">
-	<input id="mobile-input" class="mobile-input" placeholder="TYPE">
+<div class="mobile-app hidden" id="mobile-app"> 
+	<input id="mobile-input" class="mobile-input" placeholder="TYPE HERE">
 </div>
 
 
 <div class="app" id="app">
-	<div class="input" id="text"> </div>
+	<div class="input" id="text"> TYPE SOMETHING </div>
 </div> 
 
 <div class="bg-gif" id="bg-gif">
-	<div class="dot-overlay">
+	<div class="dark-overlay">
 	</div>
 </div>
 
@@ -69,7 +72,15 @@
 <script type="text/javascript" src="js/mobilecheck.js"></script>
 <script type="text/javascript" src="js/giphy.js"></script>
 <script type="text/javascript" src="js/client.js"></script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58072770-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-58072770-4');
+</script>
 
 
 </body>

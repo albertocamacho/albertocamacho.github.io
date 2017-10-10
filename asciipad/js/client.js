@@ -1,10 +1,13 @@
-	const shareAddress = 'http://acamacho.co/asciipad?';
+	const shareAddress = "http://acamacho.co/asciipad?";
+	const tweetAddress = "https://twitter.com/intent/tweet?text=check+out+this+beat+I+made+"
 	const tempo = 200;
 	const minChars = 3;
+	const volume = 0.3;
 
 	var input = document.getElementById('text');
 	var mobileInput = document.getElementById('mobile-input');
 	var inputValue = mobileInput.value;
+	var init = false;
 	var alphabet = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
 	var mobile = false;
 	var characters = 0;
@@ -14,31 +17,32 @@
 	var soundPlayers = [];
  	var soundAssets = [
 	 	'sounds/808_1.wav',
+	    'sounds/clap_3.wav',
 	 	'sounds/bass_1.wav',
 	 	'sounds/chord_1.wav',
- 		'sounds/chord_2.wav',
+ 		'sounds/hihat_1.wav',
+  		'sounds/kick_1.wav',
+	 	'sounds/chord_3.wav',
+	 	'sounds/kick_4.wav',
+ 		'sounds/chord_4.wav',
+ 		'sounds/kick_5.wav',
+ 	 	'sounds/chord_5.wav',
 	 	'sounds/clap_2.wav',
-	 	'sounds/clap_3.wav',
+	 	'sounds/hihat_4.wav',
 	 	'sounds/clap_4.wav',
 	 	'sounds/clap_5.wav',
- 		'sounds/hihat_1.wav',
  		'sounds/hihat_2.wav',
+ 		'sounds/snare_2.wav',
  		'sounds/hihat_3.wav',
- 		'sounds/kick_1.wav',
+ 		'sounds/kick_7.wav',
+  		'sounds/piano_1.wav',
  		'sounds/kick_2.wav',
-		'sounds/snare_2.wav',
-		'sounds/snare_3.wav',
-		'sounds/stab_1.wav',	 		 		
- 		'sounds/stab_2.wav',
- 		'sounds/stab_3.wav',
-  		'sounds/stab_4.wav',
-		'sounds/stab_5.wav',
-		'sounds/tom_1.wav',
-		'sounds/triangle_1.wav',
-		'sounds/808_1.wav',
-	 	'sounds/bass_1.wav',
-	 	'sounds/chord_1.wav',
-	 	'sounds/chord_2.wav'
+ 		'sounds/snare_2.wav',
+  		'sounds/kick_3.wav',
+  		'sounds/snare_3.wav',
+ 		'sounds/kick_6.wav',
+		'sounds/piano_1.wav',	 		 		
+ 		'sounds/triangle_1.wav'
  	]
 
 
@@ -47,7 +51,8 @@
 
  	for(var i = 0; i < soundAssets.length; i++){
  		var sound = new Howl({
- 			src: [ soundAssets[i] ]
+ 			src: [ soundAssets[i] ],
+ 			volume: volume
  		});
  		soundPlayers.push(sound);
  	}
@@ -60,6 +65,11 @@
 	function checkKey(e) {
 	    e = e || window.event;
 	    var key = e.keyCode;
+
+	    if(init == false){
+	    	input.innerHTML = '';
+	    	init = true;
+	    }
 	  	
 	  	if(key >= 65 && key <= 90){
 
@@ -72,6 +82,7 @@
 
 	      charArray.push(character);
 	      characters += 1;
+	      updateTwitterURL();
 	    }
 
 	    if(key == 46 || key == 8){	
@@ -80,6 +91,7 @@
 		    	input.removeChild(input.lastChild);
 		    	charArray.pop();
 		    	characters--;
+		    	updateTwitterURL();
 			}
 			else{
 				return;
@@ -91,6 +103,15 @@
 
 	function highlight(_id){
 	  document.getElementById(_id).classList.toggle('bold');
+	}
+
+	function updateTwitterURL(){
+
+		var text = charArray.join("");
+		var newAddress = shareAddress + text;
+		var twitterLink =  tweetAddress + newAddress;
+
+		document.getElementById('twitter-share').setAttribute('href', twitterLink);
 	}
 
 	function insertText(_text){
@@ -111,6 +132,7 @@
 
 		callGiphy();
 	}
+
 
 
 
@@ -253,5 +275,9 @@
 	else{
 		setInterval( loopThroughMobile, tempo );
 		toggleMobile();
+	}
+
+	if(charArray.length == 0){
+	//	insertText('type');
 	}
 
