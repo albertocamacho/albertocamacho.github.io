@@ -38,18 +38,25 @@ gulp.task('css', function() {
 
 
 // Default task
-gulp.task('default', function() {
+gulp.task('build', function() {
     gulp.start('css', 'scripts');
 });
 
 
+
+
+
+
 // watch files for changes and reload
 gulp.task('serve', function() {
+
+  
+
   browserSync({
     server: {
       baseDir: './'
     }
   });
 
-  gulp.watch(['*.html', 'styles/**/*.css', 'scripts/**/*.js'], {cwd: './'}, reload);
+  gulp.watch(['*.html', 'styles/**/*.css', 'scripts/**/*.js'], {cwd: './'}, ['build', reload]);
 });
