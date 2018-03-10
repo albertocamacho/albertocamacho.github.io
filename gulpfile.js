@@ -22,24 +22,26 @@ gulp.task('scripts', function() {
       .on('error', gutil.log); 
 });
 
-// CSS
-gulp.task('css', function() {
-  var css_src = 'styles/**/*.css';
+//SCSS
+gulp.task('sass', function () {
+  var css_src = 'styles/**/*.scss';
   var css_dest = './';
 
-  
+
   return gulp.src(css_src)
-      .pipe(concat('app.min.css')) // concat all files in the src
-      .pipe(minfycss()) // uglify them all
-      .pipe(gulp.dest(css_dest)) // save the file
-      .on('error', gutil.log); 
+    .pipe(concat('app.min.css')) // concat all files in the src
+    .pipe(minfycss()) // uglify them all
+    .pipe(gulp.dest(css_dest)) // save the file
+    .on('error', gutil.log); 
+
 });
+
 
 
 
 // Default task
 gulp.task('build', function() {
-    gulp.start('css', 'scripts');
+    gulp.start('sass', 'scripts');
 });
 
 
