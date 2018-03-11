@@ -6,6 +6,7 @@ var striplog = require('gulp-strip-debug');
 var minfycss = require('gulp-minify-css');
 var gutil = require('gulp-util');
 var browserSync = require('browser-sync');
+var sass = require('gulp-sass');
 var reload = browserSync.reload;
 
 
@@ -27,14 +28,17 @@ gulp.task('sass', function () {
   var css_src = 'styles/**/*.scss';
   var css_dest = './';
 
-
-  return gulp.src(css_src)
+  return gulp.src('styles/**/*.scss')
+    .pipe(sass()) 
     .pipe(concat('app.min.css')) // concat all files in the src
     .pipe(minfycss()) // uglify them all
     .pipe(gulp.dest(css_dest)) // save the file
+    .pipe(gulp.dest('app/css'))
     .on('error', gutil.log); 
-
 });
+
+
+
 
 
 
@@ -60,5 +64,5 @@ gulp.task('serve', function() {
     }
   });
 
-  gulp.watch(['*.html', 'styles/**/*.css', 'scripts/**/*.js'], {cwd: './'}, ['build', reload]);
+  gulp.watch(['*.html', 'styles/**/*.scss', 'scripts/**/*.js'], {cwd: './'}, ['build', reload]);
 });
