@@ -17,12 +17,16 @@
 
 
 
+<div id="project-container" class="project-container">
+	Container
+</div>
 
 
-<main id="content" class="app">
+
+<main id="content" class="port">
 
 
-	<nav class="nav nav-app"> 
+	<nav class="nav nav-port"> 
 
 		<div class="nav-items-left"> 
 			<div class="item"> Alberto Camacho </div>
@@ -36,21 +40,58 @@
 
 	</nav>
 
-	<section id="intro" class="intro">
-		<h2> 
-			I’m a product designer at Warner Bros. Digital Labs, connecting people with the stories they love.
-		</h2>
+	<section id="intro-container" class="intro-container">
+		<div class="intro">
+			<h2> 
+				I’m a product designer at Warner Bros. Digital Labs, connecting people with the stories they love.
+			</h2>
+		</div>
 	</section>
 
 
 	<section id="portfolio-grid" class="portfolio-grid">
 
-		<div class="portfolio-grid-item" id="port-one">    One </div>
-		<div class="portfolio-grid-item" id="port-two">    Two </div>
-		<div class="portfolio-grid-item" id="port-three">  Three </div>
-		<div class="portfolio-grid-item" id="port-four">   Four </div>
-		<div class="portfolio-grid-item" id="port-five">   Five </div>
-		
+		<div class="portfolio-grid-col"> 
+			<div class="portfolio-grid-item" id="port-one">    
+				Recent Projects
+			</div>
+			<div class="portfolio-grid-item" id="port-two">    
+				<div class="item-content">
+					<h3> 
+						This is the clever title of one of my projects, 
+						it might extend to two lines.
+					</h3>
+				</div>
+			</div>
+			<div class="portfolio-grid-item" id="port-three">    
+				<div class="item-content">
+					<h3> 
+						This is the clever title of one of my projects, 
+						it might extend to two lines.
+					</h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="portfolio-grid-col"> 
+			<div class="portfolio-grid-item" id="port-four">    
+				<div class="item-content">
+					<h3> 
+						This is the clever title of one of my projects, 
+						it might extend to two lines.
+					</h3>
+				</div>
+			</div>
+			<div class="portfolio-grid-item" id="port-five">    
+				<div class="item-content">
+					<h3> 
+						This is the clever title of one of my projects, 
+						it might extend to two lines.
+					</h3>
+				</div>
+			</div>
+		</div>
+
 	</section>
 
 </main>
